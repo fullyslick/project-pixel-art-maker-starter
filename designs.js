@@ -6,6 +6,23 @@
     const colorPicker = $('#colorPicker');
     const tableCanvas = $('table');
 
+    //@description Function that changes the color of the pixel (cell)
+    function changeBackground() {
+      //@description On click of any of the cells, take the valkue of color picker and change the backgrund of that cell
+      //@param {event lsitener object} e
+      tableCanvas.on('mousedown', 'td', function(e) {
+
+        //@description Take the input of color picker
+        let colorChoosed = colorPicker.val();
+
+        //@description Ge the cell that was clicked
+        let cellClicked = $(e.target);
+
+        //@description Apply background
+        cellClicked.css('background', colorChoosed);
+      });
+    }
+
     //@description Java script function that is called when 'submit' button is clicked
     function makeGrid() {
       //@description If there is already Grid created, remove it and create new one.
@@ -29,19 +46,8 @@
         }
       }
 
-      //@description On click of any of the cells, take the valkue of color picker and change the backgrund of that cell
-      //@param {event lsitener object} e
-      tableCanvas.on('mousedown', 'td', function(e) {
-
-        //@description Take the input of color picker
-        let colorChoosed = colorPicker.val();
-
-        //@description Ge the cell that was clicked
-        let cellClicked = $(e.target);
-
-        //@description Apply background
-        cellClicked.css('background', colorChoosed);
-      });
+      //@description After the canvas is created, call this function to be able to draw on the canvas
+      changeBackground();
     }
 
     //@description Get the form and on click of 'submit' button call makeGrid() function.
