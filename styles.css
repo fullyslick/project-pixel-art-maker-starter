@@ -23,6 +23,8 @@ table, tr, td {
 table {
   border-collapse: collapse;
   margin: 0 auto;
+  cursor:url(pencil.png) 0 16 ,auto;
+
 }
 
 tr {

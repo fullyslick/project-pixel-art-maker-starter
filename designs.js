@@ -4,26 +4,54 @@
     const inputHeight = $('#input_height');
     const inputWidth = $('#input_width');
     const colorPicker = $('#colorPicker');
-    const tableCanvas = $('table');
+    const tableCanvas = $('#pixel_canvas');
 
-    //@description Function that changes the color of the pixel (cell)
-    function changeBackground() {
-      //@description On click of any of the cells, take the valkue of color picker and change the backgrund of that cell
-      //@param {event lsitener object} e
-      tableCanvas.on('mousedown', 'td', function(e) {
+    //@description Holds the state of the mouse button - clicked (true) or not clicked (false)
+    let isMouseDown = false;
 
-        //@description Take the input of color picker
+    //@description Makes the cursor change the background of each cell
+    function drawWithCursor() {
+
+      //@description When the mouse button is held down, the @param isMouseDown is set to true. This will allow user to draw continuously on the grid/canvas
+      $('td').mousedown(function() {
+        isMouseDown = true;
+      });
+
+      //@description When the mouse button is released the user will not be able to draw on the grid/canvas
+      $('td').mouseup(function() {
+        isMouseDown = false;
+      });
+
+      //@description If the mouse button is released outside the grid/canvas, the cursor will NOT continue to draw when it is back on the grid/canvas.
+      //@description Solved the unexpected behaviour. Comment this event to examine the unexpected behaviour.
+      tableCanvas.mouseleave(function functionName() {
+        isMouseDown = false;
+      });
+
+      //@description The background from the color picker is applied on the clicked cell.
+      function draw(e) {
         let colorChoosed = colorPicker.val();
 
-        //@description Ge the cell that was clicked
         let cellClicked = $(e.target);
 
-        //@description Apply background
         cellClicked.css('background', colorChoosed);
+      }
+
+      //@description Allows the continuously drawing on the grid/canvas when mouse button is held (extra behaviour).
+      //@param {event lsitener object} e
+      tableCanvas.on('mouseenter', 'td', function(e) {
+        if (isMouseDown) {
+          draw(e);
+        }
+      });
+
+      //@description Draw on the pixel/cell on single click of the mouse button (standard behaviour).
+      tableCanvas.on('click', 'td', function(e) {
+        draw(e);
       });
     }
 
-    //@description Java script function that is called when 'submit' button is clicked
+    //@description Creates the canvas (grid)
     function makeGrid() {
       //@description If there is already Grid created, remove it and create new one.
       $('tr').remove();
@@ -34,20 +62,20 @@
       //@description Get the input value for width of the Grid.
       let colomns = inputWidth.val();
 
-      //@description Nested loop to create the table taking the input values.
+      //@description Nested loop to create the canvas (Grid) taking the input values.
       for (let n = 0; n < row; n++) {
 
         //@description Create table row element.
-        $('#pixel_canvas').append('<tr></tr>');
+        tableCanvas.append('<tr></tr>');
         for (let m = 0; m < colomns; m++) {
 
-          //@description Create table cell.
+          //@description Create table cell (pixel).
           $('tr').last().append('<td></td>');
         }
       }
 
-      //@description After the canvas is created, call this function to be able to draw on the canvas
-      changeBackground();
+      //@description Sets the drawing behaviour of the cursor
+      drawWithCursor();
     }
 
     //@description Get the form and on click of 'submit' button call makeGrid() function.
