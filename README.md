@@ -16,7 +16,7 @@ The primary task is to implement the makeGrid() function, that dynamically creat
 
 * [Instructions](#instructions)
 * [Requirements](#requirements)
-* [Extra Features](#extrafeatures)
+* [Extra Features](#extra-features)
 
 ## Requirements
 
