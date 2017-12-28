@@ -4,8 +4,13 @@ body {
 
 h1 {
   font-family: Monoton;
-  font-size: 70px;
+  font-size: 40px;
   margin: 0.2em;
+}
+
+#wrapper {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 h2 {
@@ -16,6 +21,49 @@ h2:first-of-type {
   margin-top: 0.5em;
 }
 
+#color-palletes, #tools {
+  float: left;
+  width: 50%;
+}
+
+.tools {
+  padding: 5px 8px;
+  background: #f8f8f8;
+  border: solid 1px #d1d1d1;
+  border-radius: 5px;
+}
+
+.tools span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+#draw span {
+  background: url('http://portal.dsej.gov.mo/prognew/gensystem/actreg/actreg/images/pencil.png') no-repeat;
+}
+
+#erase span {
+  background: url('https://rims-web4.com/sitecreator/eraser.gif') no-repeat;
+}
+
+#eye-drop span {
+  background: url('https://www.pixilart.com/img/application/icons/eyedrop_32x32.png') no-repeat;
+  background-size: 16px;
+}
+
+.clicked {
+  -webkit-box-shadow: inset 0px 0px 4px -1px rgba(141, 141, 141, 0.8);
+  -moz-box-shadow: inset 0px 0px 4px -1px rgba(141, 141, 141, 0.8);
+  box-shadow: inset 0px 0px 4px -1px rgba(141, 141, 141, 0.8);
+  background: #ededed;
+}
+
+#canvas {
+  width: 100%;
+  overflow: hidden;
+}
+
 table, tr, td {
   border: 1px solid #e2e2e2;
 }
@@ -23,16 +71,15 @@ table, tr, td {
 table {
   border-collapse: collapse;
   margin: 0 auto;
-  cursor:url(pencil.png) 0 16 ,auto;
-
+  cursor: url(pencil.png) 0 16, auto;
 }
 
 tr {
-  height: 10px;
+  height: 15px;
 }
 
 td {
-  width: 10px;
+  width: 15px;
   box-sizing: border-box;
 }
 
