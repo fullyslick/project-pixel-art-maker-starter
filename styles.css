@@ -26,37 +26,34 @@ h2:first-of-type {
   width: 50%;
 }
 
-.tools {
-  padding: 5px 8px;
-  background: #f8f8f8;
+#tools button {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
   border: solid 1px #d1d1d1;
   border-radius: 5px;
+  background-position: center;
 }
 
-.tools span {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+#draw {
+  background: #ededed url('http://portal.dsej.gov.mo/prognew/gensystem/actreg/actreg/images/pencil.png') no-repeat;
 }
 
-#draw span {
-  background: url('http://portal.dsej.gov.mo/prognew/gensystem/actreg/actreg/images/pencil.png') no-repeat;
+#erase {
+  background: #ededed url('https://rims-web4.com/sitecreator/eraser.gif') no-repeat;
 }
 
-#erase span {
-  background: url('https://rims-web4.com/sitecreator/eraser.gif') no-repeat;
-}
-
-#eye-drop span {
-  background: url('https://www.pixilart.com/img/application/icons/eyedrop_32x32.png') no-repeat;
+#eye-drop {
+  background: #ededed url('https://www.pixilart.com/img/application/icons/eyedrop_32x32.png') no-repeat;
   background-size: 16px;
 }
 
 .clicked {
-  -webkit-box-shadow: inset 0px 0px 4px -1px rgba(141, 141, 141, 0.8);
-  -moz-box-shadow: inset 0px 0px 4px -1px rgba(141, 141, 141, 0.8);
-  box-shadow: inset 0px 0px 4px -1px rgba(141, 141, 141, 0.8);
+  -webkit-box-shadow: inset 0px 0px 4px 1px rgba(141, 141, 141, 0.8);
+  -moz-box-shadow: inset 0px 0px 4px 1px rgba(141, 141, 141, 0.8);
+  box-shadow: inset 0px 0px 4px 1px rgba(141, 141, 141, 0.8);
   background: #ededed;
+  outline: none;
 }
 
 #canvas {

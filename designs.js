@@ -5,6 +5,8 @@
     const inputWidth = $('#input_width');
     const colorPicker = $('#colorPicker');
     const tableCanvas = $('#pixel_canvas');
+    //@description Takes the div that holds all the tools buttons
+    const tools = $('#tools');
 
     //@description Holds the state of the mouse button - clicked (true) or not clicked (false)
     let isMouseDown = false;
@@ -50,6 +52,20 @@
         draw(e);
       });
     }
+
+    //@description This function handles the tool selection, and switches between different modes (draw, erase, eye picker),
+    // depending on the clicked (choosen) tools
+    tools.on('click', 'button', function(e) {
+
+      //@description First remove "clicked" class from all buttons
+      tools.children().removeClass('clicked');
+
+      //@description Apply the "clicked" class just on the button that was clicked
+      $(e.target).addClass('clicked');
+
+      //@description TO:DO: Detects what button was clicked to switch between draw, erase, eyepick
+      console.log($(e.target).val());
+    });
 
     //@description Creates the canvas (grid)
     function makeGrid() {
