@@ -31,3 +31,7 @@ Download the repository and if it is required extract the content of the downloa
 
 ## Extra Features:
 * if you click on a cell (pixel) and hold the mousse button you will be able to draw continually on the grid (canvas)
+To use the following extra features please checkout to "extra-features" branch:
+* drawing tool (pencil) - draws on a table. This is the default mode.
+* eraser - removes the color of every cell (pixel) that you click on.
+* eye droper - takes the color of the selected cell, and sets it as color for the drawing tool.
