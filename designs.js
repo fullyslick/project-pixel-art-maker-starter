@@ -5,6 +5,7 @@
     const inputWidth = $('#input_width');
     const colorPicker = $('#colorPicker');
     const tableCanvas = $('#pixel_canvas');
+    const gridToggle = $('#gridToggle');
     //@description Takes the div that holds all the tools buttons
     const tools = $('#tools');
 
@@ -72,6 +73,8 @@
         }
       }
 
+      //@description Removes the border of the grid
+
       // # All the cursor behaviours on manipulating the grid!
 
       //@description When the mouse button is held down, the @param isMouseDown is set to true. This will allow user to draw, erase, take color continuously on the grid/canvas
@@ -117,6 +120,18 @@
 
       //@description Change the value of this varuable, to let the @function detectTool(e) knows what button is clicked.
       modeSelected = $(e.target).val();
+    });
+
+    //@description Removes the border of the grid
+    gridToggle.click(function() {
+      //@description If the button was 'clicked' add border, if not remove it
+      if (gridToggle.hasClass('clicked')) {
+        $('td').css('border', '1px solid #e2e2e2');
+      } else{
+        $('td').css('border', 'none');
+      }
+      //@description Toggles class 'clicked' to change the appearance of 'Grid' button and determine whether to remove or add border to the grid
+      $(this).toggleClass('clicked');
     });
 
     //@description change the cursor image depending on tool selected
