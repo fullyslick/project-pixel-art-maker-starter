@@ -35,3 +35,5 @@ To use the following extra features please checkout to "extra-features" branch:
 * drawing tool (pencil) - draws on a table. This is the default mode.
 * eraser - removes the color of every cell (pixel) that you click on.
 * eye droper - takes the color of the selected cell, and sets it as color for the drawing tool.
+* grid - shows/hides the cells (pixels) borders
+* 4 color palettes - click on the radio button to choose a color palette
