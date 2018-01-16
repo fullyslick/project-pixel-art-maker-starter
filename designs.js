@@ -2,6 +2,17 @@
 const submitForm = document.getElementById('sizePicker');
 const canvas = document.getElementById('pixel_canvas');
 
+// @description Allows to draw on the canvas
+function drawOnCanvas(){
+  // On click of any of the cells, take the value of color picker and change the backgrund of that cell
+  canvas.addEventListener("click", function(e) {
+    // @param Get the value of the color picker and assign it to a variable
+    let colorChoosed = document.getElementById('colorPicker').value;
+
+    // @description Apply the selected color and set it as background to the chosen cell
+    e.target.style.background = colorChoosed;
+  });
+}
 // @description The function that will build the grid
 function makeGrid() {
   // @description Take the values of the input fields
@@ -23,6 +34,9 @@ function makeGrid() {
       currentRow.appendChild(document.createElement('td'));
     }
   }
+
+  // @description Call the function to draw on canvas
+  drawOnCanvas();
 }
 
 // @description Call make grid function on click of submit button
