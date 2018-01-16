@@ -6,5 +6,8 @@
 function makeGrid() {
 
 // Your code goes here!
-
+alert("Hello World");
 }
+
+
+makeGrid();
