@@ -24,10 +24,10 @@ function makeGrid() {
     canvas.removeChild(canvas.firstChild);
   }
 
-  for (var r = 0; r < rows; r++) {
+  for (let r = 0; r < rows; r++) {
     // @description Create table row element.
     canvas.appendChild(document.createElement('tr'));
-    for (var c = 0; c < columns; c++) {
+    for (let c = 0; c < columns; c++) {
       // @description Find the current row element to create table cell element inside it
       let currentRow = document.getElementsByTagName('tr')[r];
       //@description Create table cell.
