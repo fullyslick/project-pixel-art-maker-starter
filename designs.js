@@ -3,6 +3,8 @@ const submitForm = document.getElementById('sizePicker');
 const canvas = document.getElementById('pixel_canvas');
 // Stores the choosen color
 let colorChoosed;
+// Fragment that will store the newly created Grid
+const fragment = document.createDocumentFragment();
 
 // @description Allows to draw on the canvas
 function drawOnCanvas(){
@@ -32,15 +34,21 @@ function makeGrid() {
 
   for (let r = 0; r < rows; r++) {
     // @description Create table row element.
-    canvas.appendChild(document.createElement('tr'));
+    let tableRow = document.createElement('tr');
+
+    //@description for every table row create table cells  = number of columns
     for (let c = 0; c < columns; c++) {
-      // @description Find the current row element to create table cell element inside it
-      let currentRow = document.getElementsByTagName('tr')[r];
-      //@description Create table cell.
-      currentRow.appendChild(document.createElement('td'));
+
+      tableRow.appendChild(document.createElement('td'));
+
+      // Insert the row and its child table cells to the fragment
+      fragment.appendChild(tableRow);
     }
   }
 
+  // Insert the fragment -> capsulated code (grid rows and cells) into the table element
+  canvas.appendChild(fragment);
+  
   // @description Call the function to draw on canvas
   drawOnCanvas();
 }
