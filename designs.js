@@ -1,16 +1,22 @@
 // Take the dom elements and set them as constants
 const submitForm = document.getElementById('sizePicker');
 const canvas = document.getElementById('pixel_canvas');
+// Stores the choosen color
+let colorChoosed;
 
 // @description Allows to draw on the canvas
 function drawOnCanvas(){
   // On click of any of the cells, take the value of color picker and change the backgrund of that cell
   canvas.addEventListener("click", function(e) {
-    // @param Get the value of the color picker and assign it to a variable
-    let colorChoosed = document.getElementById('colorPicker').value;
 
-    // @description Apply the selected color and set it as background to the chosen cell
-    e.target.style.background = colorChoosed;
+    // Delegation, detect if the clicked child element is table cell ("td")
+    if (e.target.nodeName === "TD") {
+      // @param Get the value of the color picker and assign it to a variable
+      colorChoosed= document.getElementById('colorPicker').value;
+
+      // @description Apply the selected color and set it as background to the chosen cell
+      e.target.style.background = colorChoosed;
+    }
   });
 }
 // @description The function that will build the grid
